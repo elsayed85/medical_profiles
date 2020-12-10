@@ -10,12 +10,13 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Link extends Model implements HasMedia
 {
     use InteractsWithMedia;
-    
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
+    
     protected $table = 'user_links';
 
     public function user()
