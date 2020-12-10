@@ -16,7 +16,6 @@ class Link extends Model implements HasMedia
      *
      * @var string
      */
-    
     protected $table = 'user_links';
 
     public function user()
