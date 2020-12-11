@@ -17,7 +17,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('theme:themeone');
+})->middleware('theme:default');
 
 Auth::routes(['verify' => true]);
 

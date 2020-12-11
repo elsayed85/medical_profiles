@@ -9,9 +9,10 @@ use Shipu\Themevel\Facades\Theme;
 
 class ProfileController extends Controller
 {
-    public function show(User $user){
+    public function show(User $user)
+    {
         $theme = optional($user->theme);
-        Theme::set($theme->title ?? config('theme.active'));
-        return view('profile' , get_defined_vars());
+        Theme::has($theme->title) ? Theme::set($theme->title) : Theme::set(config("theme.active"));
+        return view('profile', get_defined_vars());
     }
 }

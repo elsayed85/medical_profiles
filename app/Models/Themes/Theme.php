@@ -14,6 +14,13 @@ class Theme extends Model
      */
     protected $guarded = [];
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('background_image')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/jpg'])
+            ->singleFile();
+    }
+
     public function scopeAvailable($query)
     {
         return $query->where('is_available', true);
