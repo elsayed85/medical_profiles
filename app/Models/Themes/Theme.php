@@ -2,9 +2,25 @@
 
 namespace App\Models\Themes;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Theme extends Model
 {
-    //
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    public function scopeAvailable($query)
+    {
+        return $query->where('is_available', true);
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Links\Link;
+use App\Models\Themes\Theme;
 use Cviebrock\EloquentSluggable\Sluggable;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
@@ -13,9 +14,9 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class User extends Authenticatable implements HasMedia, MustVerifyEmail , Viewable
+class User extends Authenticatable implements HasMedia, MustVerifyEmail, Viewable
 {
-    use Notifiable, InteractsWithMedia, Sluggable , InteractsWithViews;
+    use Notifiable, InteractsWithMedia, Sluggable, InteractsWithViews;
 
     /**
      * The attributes that are mass assignable.
@@ -69,5 +70,10 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail , Viewab
     public function links()
     {
         return $this->hasMany(Link::class);
+    }
+
+    public function theme()
+    {
+        return $this->belongsTo(Theme::class);
     }
 }

@@ -19,6 +19,7 @@ class Link extends Model implements HasMedia , Sortable
      * @var string
      */
     protected $table = 'user_links';
+    protected $guarded = [];
 
     public $sortable = [
         'order_column_name' => 'order_column',
