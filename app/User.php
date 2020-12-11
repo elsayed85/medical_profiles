@@ -60,7 +60,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail , Viewab
     public function sluggable()
     {
         return [
-            'slug' => [
+            'username' => [
                 'source' => 'name'
             ]
         ];

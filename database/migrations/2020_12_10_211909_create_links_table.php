@@ -18,6 +18,7 @@ class CreateLinksTable extends Migration
             $table->string('title')->nullable();
             $table->longText('url')->nullable();
             $table->boolean('is_public')->default(false);
+            $table->mediumInteger('order_column')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

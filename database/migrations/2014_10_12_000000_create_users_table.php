@@ -18,8 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('username')->nullable();
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('theme_id')->nullable();
+            $table->foreign('theme_id')->on('themes')->references('id')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
         });
