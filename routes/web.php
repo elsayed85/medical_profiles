@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Site\User\ProfileController;
+use App\Payment\vapulus\vapulus;
 use Illuminate\Support\Facades\Route;
 
 // ADMIN routes
@@ -19,8 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('theme:default');
 
+Route::get('test', function () {
+    return view('payment.vapulus.card');
+})->name("test");
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/u/{user:username}' , [ProfileController::class , "show"])->name('user.public_profile');
+Route::get('/u/{user:username}', [ProfileController::class, "show"])->name('user.public_profile');
